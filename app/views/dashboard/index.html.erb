@@ -1,0 +1,30 @@
+<h2>Podglad</h2>
+<img src="https://s3-eu-west-1.amazonaws.com/expleohome/image.jpg">
+<h2>Grafik podlewania</h2>
+<table class="table tablle-stripped">
+  <thead>
+    <tr>
+      <th>Kiedy</th>
+      <th>Jak dlugo</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Sprinkler.order('start_at desc').all.each do |s| %>
+    <tr>
+      <td><%= s.start_at %></td>
+      <td><%= s.duration %></td>
+      <td><%= '<i class="fa fa-check"></i>'.html_safe if s.performed %>
+          <%= '<i class="fa fa-spinner fa-spin"></i>'.html_safe if s.in_progress %></td>
+      <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, sprinkler_url(s), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<h2>Nowe podlewanie</h2>
+<%= simple_form_for Sprinkler.new do |f| %>
+    <%= f.input :start_at, label:'Kiedy?', as: :datetime %>
+    <%= f.input :duration, label: 'Jak dlugo?', hint: 'W sekundach' %>
+    <%= f.submit name: 'Dodaj' %>
+<% end %>

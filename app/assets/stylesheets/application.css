@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    padding: 5px 10px;
+}
+
+.form-control {
+    display: inline;
+    width: auto;
+}
+
+label {
+    width: 100px;
+    text-align: right;
+    padding-right: 5px;
+}
