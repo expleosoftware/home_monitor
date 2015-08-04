@@ -18,7 +18,7 @@ class SprinklersController < ApplicationController
 
   def update
     Sprinkler.find(params[:id]).update(allowed_attrs)
-    redirect_to :index
+    redirect_to :sprinklers
   end
 
   def destroy
