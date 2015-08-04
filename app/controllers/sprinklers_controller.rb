@@ -1,5 +1,7 @@
 class SprinklersController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token
+
   def index
     @sprinklers = Sprinkler.order(:start_at).all
     respond_to do |format|

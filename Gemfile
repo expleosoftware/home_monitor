@@ -34,7 +34,7 @@ gem 'simple_form'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
